@@ -1,0 +1,264 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: bike_analytics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - dde_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      # KRaft mode configuration (no Zookeeper needed)
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      CLUSTER_ID: 'dde_kafka_cluster_001'
+      
+      # Cluster and replication settings
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      
+      # Topic and log settings
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+      KAFKA_LOG_RETENTION_HOURS: 168  # 7 days
+      KAFKA_LOG_SEGMENT_BYTES: 1073741824  # 1GB
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 300000  # 5 minutes
+      KAFKA_NUM_PARTITIONS: 6
+      
+      # Performance settings for university simulation
+      KAFKA_SOCKET_SEND_BUFFER_BYTES: 102400
+      KAFKA_SOCKET_RECEIVE_BUFFER_BYTES: 102400
+      KAFKA_SOCKET_REQUEST_MAX_BYTES: 104857600
+      KAFKA_MESSAGE_MAX_BYTES: 10485760  # 10MB
+      KAFKA_REPLICA_FETCH_MAX_BYTES: 10485760  # 10MB
+      
+      # JVM and logs
+      KAFKA_HEAP_OPTS: "-Xmx1G -Xms1G"
+      KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    networks:
+      - dde_network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  kafka-init:
+    image: apache/kafka:3.7.0
+    container_name: kafka-init
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: >
+      bash -c "
+        echo 'Waiting for Kafka to be ready...'
+        sleep 15
+        echo 'Creating Kafka topics...'
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:9092 --partitions 6 --replication-factor 1 --topic weather_data --config retention.ms=604800000
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:9092 --partitions 6 --replication-factor 1 --topic station_information --config retention.ms=604800000
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:9092 --partitions 6 --replication-factor 1 --topic station_status --config retention.ms=604800000
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:9092 --partitions 3 --replication-factor 1 --topic spark_processed_data --config retention.ms=604800000
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:9092 --partitions 3 --replication-factor 1 --topic analytics_events --config retention.ms=604800000
+        echo 'Topics created successfully'
+        echo 'Available topics:'
+        /opt/kafka/bin/kafka-topics.sh --list --bootstrap-server kafka:9092
+        echo 'Topic configurations:'
+        /opt/kafka/bin/kafka-topics.sh --describe --bootstrap-server kafka:9092
+      "
+    networks:
+      - dde_network
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    restart: unless-stopped
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: dde-kafka-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_READONLY: false
+      SERVER_SERVLET_CONTEXT_PATH: /
+      LOGGING_LEVEL_ROOT: INFO
+    networks:
+      - dde_network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - dde_network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/misc/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  gbfs_producer:
+    build:
+      context: .
+      dockerfile: ./producers/gbfs/Dockerfile
+    command: python producers/gbfs/gbfs_producer.py
+    container_name: gbfs_producer
+    restart: unless-stopped
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - PRODUCER_TYPE=gbfs
+      - KAFKA_BOOTSTRAP_SERVER=kafka:9092
+    networks:
+      - dde_network
+
+  weather_producer:
+    build:
+      context: .
+      dockerfile: ./producers/weather/Dockerfile
+    command: python producers/weather/weather_producer.py
+    container_name: weather_producer
+    restart: unless-stopped
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - PRODUCER_TYPE=weather
+      - KAFKA_BOOTSTRAP_SERVER=kafka:9092
+    networks:
+      - dde_network
+
+  spark-master:
+    image: apache/spark:3.5.0
+    container_name: spark-master
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+      - "7077:7077"
+    environment:
+      SPARK_MODE: master
+      SPARK_RPC_AUTHENTICATION_ENABLED: no
+      SPARK_RPC_ENCRYPTION_ENABLED: no
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: no
+      SPARK_SSL_ENABLED: no
+      SPARK_MASTER_OPTS: "-Dspark.deploy.defaultCores=2"
+    command: >
+      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host spark-master --port 7077 --webui-port 8080"
+    networks:
+      - dde_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  spark-worker:
+    image: apache/spark:3.5.0
+    restart: unless-stopped
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_CORES: 4
+      SPARK_WORKER_MEMORY: 4g
+      SPARK_RPC_AUTHENTICATION_ENABLED: no
+      SPARK_RPC_ENCRYPTION_ENABLED: no
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: no
+      SPARK_SSL_ENABLED: no
+    command: >
+      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"
+    networks:
+      - dde_network
+    deploy:
+      replicas: 2  # Default number of replicas, can be scaled dynamically
+
+  spark-driver:
+    build:
+      context: .
+      dockerfile: ./spark/Dockerfile
+    container_name: spark-driver
+    restart: unless-stopped
+    depends_on:
+      spark-master:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - KAFKA_BOOTSTRAP_SERVER=kafka:9092
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=bike_analytics
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - CITY_NAME=New York
+      - SPARK_PROCESSING_MODE=streaming  # streaming, batch, or hourly
+      - BATCH_DETECTION_INTERVAL=300
+      - HOURLY_SUMMARIES_ENABLED=true
+      - ML_TRAINING_ENABLED=false
+    volumes:
+      - spark-checkpoint:/tmp/spark-checkpoint
+      - spark-models:/tmp/bike_utilization_model
+    networks:
+      - dde_network
+
+networks:
+  dde_network:
+
+volumes:
+  kafka-data:
+  postgres-data:
+  pgadmin-data:
+  spark-checkpoint:
+  spark-models:

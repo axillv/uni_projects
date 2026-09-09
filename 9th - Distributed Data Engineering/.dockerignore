@@ -1,0 +1,14 @@
+# Ignore everything by default
+**
+
+# Include generics
+!config/
+!producers/
+!spark/
+!postgres/
+!.env
+
+# Exclude unnecessary files
+**/__pycache__
+**/*.pyc
+**/.git

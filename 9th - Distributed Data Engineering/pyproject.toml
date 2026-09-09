@@ -1,0 +1,32 @@
+[project]
+name = "dde-project"
+version = "0.1.0"
+description = "Decentralized Data Engineering project with HTTP API, Kafka, Spark, and PostgreSQL pipeline"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["tomlkit>=0.13.3"]
+
+[dependency-groups]
+config = ["dotenv>=0.9.9"]
+generic-prod = ["confluent-kafka>=2.11.1", "requests>=2.32.5"]
+weather-prod = [
+    { include-group = "generic-prod" },
+    { include-group = "config" },
+]
+gbfs-prod = [{ include-group = "generic-prod" }, { include-group = "config" }]
+
+spark = [
+    "psycopg2-binary>=2.9.10",
+    "pyspark>=3.5.0",
+    "schedule>=1.2.0",
+    "scikit-learn>=1.3.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "joblib>=1.3.0",
+    "kafka-python>=2.0.2",
+    "sqlalchemy>=2.0.0",
+    { include-group = "config" },
+]
+
+[tool.uv]
+default-groups = "all"

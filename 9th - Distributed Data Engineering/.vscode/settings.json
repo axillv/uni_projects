@@ -1,0 +1,15 @@
+{
+    "ruff.lint.select": [
+        "I",
+        "C",
+        "NPY",
+        "PD",
+        "N",
+        "DOC",
+        "RUF",
+        "E",
+        "W",
+        "PLC"
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+}
