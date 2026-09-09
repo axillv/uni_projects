@@ -1,0 +1,48 @@
+---
+#--------------------- DB ----------------------
+# DB Connection with the uri (host)
+client: "mongodb://localhost:27017/"
+
+# db name
+db: "aiot-project"
+
+# db collection
+col: "aiot-sensorvalues"
+
+#--------------------- Dataframe Instantiation ----------------------
+# Dataframe columns list
+order: ["X", "Y", "Z"]
+acc_target: ["epoch (ms)", "x-axis (g)", "y-axis (g)", "z-axis (g)"]
+acc_ref: ["epoch (ms)", "acc_x", "acc_y", "acc_z"]
+gyro_target:
+  ["epoch (ms)", "x-axis (deg/s)", "y-axis (deg/s)", "z-axis (deg/s)"]
+gyro_ref: ["epoch (ms)", "gyro_x", "gyro_y", "gyro_z"]
+
+#--------------------- Dataset Local Storage ----------------------
+# dataset location
+data_path: "PATH TO THE DATASET"
+# single data instance location path to experiment with the data engineering process and visualization
+single_instance_path: "PATH TO INSTANCE"
+
+#--------------------- Data Engineering ----------------------
+# collected data information
+wearable_sample_freq: 100 # hz
+wearable_accel_freq: 16 # g/s
+wearable_gyro_freq: 2000 # deg/s
+
+# sliding window algorithm parameters
+sliding_window:
+  ws: 120 # 1.2 seconds window size at 100hz sampling rate
+  overlap: 0.5 # 50% overlap
+  w_type: "hann"
+  w_center: True
+  print_stats: True
+
+# window to handle for visualization purposes
+x_number: 2
+
+# filtering parameterization
+filter:
+  order: 4
+  wn: 0.1 # 5hz at 100hz sampling rate
+  type: "lowpass"

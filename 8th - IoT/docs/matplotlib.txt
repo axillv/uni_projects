@@ -1,0 +1,2 @@
+https://matplotlib.org/stable/gallery/widgets/span_selector.html
+https://stackoverflow.com/questions/67869792/how-to-use-line-set-data-for-data-that-is-a-2-dimensional-array-in-matplotlib
