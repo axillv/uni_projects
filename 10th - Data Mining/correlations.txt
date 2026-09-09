@@ -1,0 +1,27 @@
+'Fwd IAT Total',                 #λογω correlation με Flow Duration
+'Subflow Fwd Packets',                 #λογω correlation με Total Fwd Packet
+'Subflow Bwd Packets',                 #λογω correlation με Total Bwd packets
+'Fwd Act Data Pkts',                 #λογω correlation με Total Length of Fwd Packet
+'Fwd Packet Length Min',                 #λογω correlation με Fwd Packet Length Max
+'Fwd Packet Length Mean',                 #λογω correlation με Fwd Packet Length Max
+'Fwd Packet Length Max',                 #λογω correlation με Packet Length Max
+'Packet Length Mean',                 #λογω correlation με Fwd Packet Length Max
+'Fwd Segment Size Avg',                 #λογω correlation με Fwd Packet Length Max
+'Bwd Packet Length Std',                 #λογω correlation με Bwd Packet Length Max
+'Bwd Segment Size Avg',                 #λογω correlation με Bwd Packet Length Mean
+'Fwd Packets/s',                 #λογω correlation με Flow Packets/s
+'Flow IAT Mean',                 #λογω correlation με Flow IAT Max
+'Fwd IAT Mean',                 #λογω correlation με Flow IAT Max
+'Fwd IAT Max',                 #λογω correlation με Flow IAT Max
+'Idle Mean',                 #λογω correlation με Flow IAT Max
+'Flow IAT Max',                 #λογω correlation με Idle Max
+'Idle Min',                 #λογω correlation με Flow IAT Max
+'Fwd IAT Min',                 #λογω correlation με Fwd IAT Mean
+'Bwd IAT Std',                 #λογω correlation με Bwd IAT Max
+'ACK Flag Count',                 #λογω correlation με Fwd Header Length
+'Packet Length Max',                 #λογω correlation με Average Packet Size
+'Packet Length Std',                 #λογω correlation με Packet Length Variance
+'PSH Flag Count',                 #λογω correlation με ACK Flag Count
+'Bwd Packet/Bulk Avg',                 #λογω correlation με Bwd Bytes/Bulk Avg
+'Active Mean',                 #λογω correlation με Active Max
+'Active Min',                 #λογω correlation με Active Mean
