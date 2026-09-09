@@ -1,0 +1,832 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --kataRED: #FA4343;
+}
+* {
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 2.6fr 0.8fr 0.7fr;
+    grid-template-rows: 0.2fr 1.5fr 8fr;
+    grid-template-areas: 
+    "modeT modeT modeT" 
+    "logoT menuT menuT" 
+    "imapT taskT boxesT";
+
+}
+
+.vehicle-management-active .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "modeT modeT modeT" 
+    "logoT menuT menuT" 
+    "imapT imapT imapT";
+}
+
+.logoT{
+    grid-area: logoT;
+    display: flex;
+    justify-content: flex-start; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.taskT {
+    grid-area: taskT;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.modeT{
+    
+    grid-area: modeT;
+}
+
+.menuT{
+    grid-area: menuT;
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+.imapT{
+
+    padding: 5%;
+    grid-area: imapT;
+}
+
+.boxesT{
+    grid-area: boxesT;
+}
+
+.modeRectangle{
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    flex-shrink: 0;
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+}
+
+.modeF{
+    color: #5F5F5F;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.RlogoBIG {
+    height: auto;
+    width: 30vh; /* Maintain aspect ratio */    
+    margin: 0; /* Removes any default margin */
+    padding: 0; /* Removes any default padding */
+    cursor: pointer;
+}
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 2vh; /* Increase the font size */
+    height: 100% ;/* Full height of the parent container */
+    width: 100%; /* Full width of the parent container */
+    flex-wrap: wrap;
+    margin-right: 10vh;
+    z-index: 999;
+}
+
+.menu-item {
+    font-family: Roboto;
+    color: #FA4343; /* The red color as per the button example */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3vh; /* Increase the font size */
+}
+
+.menu-item:hover{
+    text-decoration: underline;
+    
+}
+
+.separator {
+    color: var(--grey50);
+    font-size: 5vh;
+}
+
+/* edo gia xarti*/
+.mapContainer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    /*border: 3px solid #FA4343;*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mapWtitle {
+    font-family: Roboto;
+    background-color: #FA4343;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.mapView {
+    position: relative;
+    overflow: hidden; /* Ensure no overflow issues */
+    z-index: 2;
+}
+
+#map {
+    width: 100%;
+    height: 30rem; /* Ensure sufficient height */
+    border-bottom: 2px solid #FA4343;
+}
+
+.help-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    color: #FA4343;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    margin: 15px;
+}
+
+.buttonArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #FA4343;
+    padding: 10px;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.map-button {
+    background-color: #FA4343;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.map-button:hover {
+    background-color: #e03b3b;
+}
+
+.map-button:active{
+    background-color: white;
+    color:var(--kataRED)
+}
+
+.map-button.active-filter {
+    background-color: white;
+    color:var(--kataRED)
+}
+
+.map-button.active-filter:hover {
+    background-color: #ad1919;
+    color: white;
+}
+
+.exitB{
+    width: 500px;
+    margin: 50px;
+}
+
+
+.task-offer-box {
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: #00AEEF;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.task-request-box {
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: rgb(50, 185, 59);
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.request-box {
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: #d72916;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.offer-box {
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: #d6680f;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    cursor: move; /* Change cursor to indicate draggable area */
+}
+
+.task-title {
+    font-size: 2em;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.close-btn {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.task-details p {
+    margin: 5px 0;
+}
+
+
+.menu-item-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FA4343;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.dropdown-content a {
+    transition: ease-in 5s ease;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 1em;
+    border-radius: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ba2929;
+    
+}
+
+.menu-item-container:hover .dropdown-content {
+    display: block;
+}
+
+.form-container {
+    font-family: roboto;
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+    background-color: #FA4343;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.form-content {
+    padding: 15px;
+}
+
+.form-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-content select,
+.form-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-content select {
+    appearance: none;
+    background: #f9f9f9 url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCA2Ij4gPHBhdGggZD0iTTUgMEw5IDZIMkw1IDB6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 10px;
+}
+
+.form-content input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.form-buttons2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 28px;
+}
+
+.btn {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+.btn_task {
+    width: 58%;
+    padding: 15px;
+    border: none;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    color: #FA4343;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn.add-fields {
+    background-color: #FF6B6B;
+}       
+
+.btn.submit {
+    background-color: #FA4343;
+}
+
+.btn_task:hover {
+    opacity: 0.9;
+}
+.btn_task:active
+{   color: #ffffff;
+    background-color: #FA4343;
+}
+.reqs{
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+
+.dashboard-container {
+    font-family: roboto;
+    display: none;
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header {
+    background-color: #FA4343;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5em;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
+/* Container for data table and filter */
+.data-container {
+    font-family: roboto;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+/* Table container styles */
+.table-container {
+    flex: 10;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+    margin-right: 24px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+
+.table-container2 {
+    flex: 10;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    font-family: Roboto;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #FA4343;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: var(--kataRED);
+    color: white;
+}
+
+th.sort-asc::after {
+    content: ' ▲'; /* Up arrow */
+}
+
+th.sort-desc::after {
+    content: ' ▼'; /* Down arrow */
+}
+
+thead tr th:hover {
+    cursor: pointer;
+}
+
+thead tr th.no-sort:hover {
+    cursor: default; /* don't show pointer cursor for non-sortable columns */    
+}
+
+
+
+.viewStockW{
+    display: none;
+}
+/*mobile version*/
+.hamburger-menu {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #FA4343;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .menu-bar {
+        display: none; /* Hide the menu bar */
+        flex-direction: column;
+        background-color: #f4f4f4;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 250px;
+        height: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        justify-content: flex-start;
+        padding-top: 15%;
+        border-radius: 15px;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu button */
+    }
+
+    .menu-bar a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .separator {
+        display: none; /* Hide separators on mobile */
+    }
+    .menu-item-container {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: relative; /* Change position for mobile */
+        min-width: 100%;
+        box-shadow: none;
+    }
+
+    .menu-item-container.active .dropdown-content {
+        display: block;
+    }
+
+
+    .container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas: 
+        "modeT modeT" 
+        "logoT menuT" 
+        "imapT imapT"
+        "boxesT boxesT"
+        "taskT taskT";
+        height: auto;
+    
+    }
+
+    .modeT {
+        grid-area: modeT;
+    }
+
+    .logoT {
+        grid-area: logoT;
+    }
+
+    .menuT {
+        grid-area: menuT;
+        justify-content: flex-start;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    .modeF{
+        font-size: small;
+    }
+    .imapT {
+        grid-area: imapT;
+    }
+
+    .taskT {
+        grid-area: taskT;
+    }
+
+    .boxesT {
+        grid-area: boxesT;
+    }
+    .task-box {
+        width: 90%; /* Reduce width for mobile */
+        max-width: none;
+        left: 5%; /* Adjust positioning */
+        top: 10%;
+        transform: none; /* Reset transform */
+    }
+
+    .mapWtitle{
+        font-size: 1em;
+    }
+
+    #map {
+        width: 100%;
+        height: 20rem; /* Ensure sufficient height */
+        border-bottom: 2px solid #FA4343;
+    }
+
+    .map-button{
+        font-size: 0.8em;
+    }
+
+    .btn_task{
+        font-size: 0.9em;
+    }
+
+    .task-panel-right {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .data-container {
+        flex-direction: column; /* Stack the containers vertically */
+    }
+
+    .table-container {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    .table-container2 {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    table {
+        font-family: roboto;
+        font-size: 0.7em; /* Decrease font size */
+    }
+
+    
+    th, td {
+        padding: 1.5px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #FA4343;
+        color: white;
+    }
+}
+
+
+
+/* Styling for the new form header */
+.form-header {
+    border-radius: 10px 10px 0 0; /* This is added to ensure a consistent rounded border */
+}
+
+.form-content input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+/* Container for forms to display side by side */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Adjust gap between forms as needed */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+
+.task-panel-right {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.table-title {
+    font-family: Roboto;
+    background-color: #FA4343;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 10px 10px 0 0;
+}
+
+.task-button, .cancel-button {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.task-button {
+    background-color: #00AEEF;
+}
+
+.cancel-button {
+    background-color: rgb(236, 186, 60);
+}
+
+
+/* Custom checkbox styles */
+input[type="checkbox"].task-checkbox {
+    appearance: none;
+    background-color: white; /* Unchecked background */
+    margin: 0;
+    font: inherit;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FA4343; /* Red border */
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+    transition: background-color 120ms ease-in-out; /* Add smooth transition */
+}
+
+input[type="checkbox"].task-checkbox::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transition: transform 120ms ease-in-out;
+}
+
+input[type="checkbox"].task-checkbox:checked {
+    background-color: #00AEEF; /* Red background when checked */
+}
+
+input[type="checkbox"].task-checkbox:checked::before {
+    transform: scale(1);
+    background-color:#00AEEF; /* White checkmark when checked */
+    box-shadow: inset 1em 1em #00AEEF;
+}
+
+input[type="number"] { 
+    width: 3em;
+}
+
+#draggableBox {
+    position: relative;
+    max-width: 90%; /* Control size */
+    max-height: 90%;
+    margin: auto; /* Center it within its grid area */
+    z-index: 1000;
+    cursor: grab;
+    transform: translate(0, 0); /* Initial translate set to zero */
+    transition: transform 0.2s ease;
+}

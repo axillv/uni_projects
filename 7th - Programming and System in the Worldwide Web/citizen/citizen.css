@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
+:root {
+    --kataRED: #FA4343;
+    --grey50: #5F5F5F;
+}
+* {
+    box-sizing: border-box;
+}
+
+
+.container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 3fr 1.5fr;
+    grid-template-rows: 0.2fr 1.5fr 8fr;
+    grid-template-areas: 
+    "modeT modeT modeT" 
+    "logoT menuT menuT" 
+    "left-box right-box right-box";
+
+}
+
+.logoT{
+    
+    grid-area: logoT;
+    display: flex;
+    justify-content: flex-start; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modeT{
+    
+    grid-area: modeT;
+}
+
+.menuT{
+    
+    grid-area: menuT;
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+.left-box {
+    padding-top: 8%;
+    grid-area:left-box;
+ 
+}
+
+.right-box{
+    padding-top: 2%;
+    grid-area: right-box;
+}
+
+.modeRectangle{
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    flex-shrink: 0;
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+}
+
+.modeF{
+    color: #5F5F5F;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.RlogoBIG {
+    height: auto;
+    width: 30vh; /* Maintain aspect ratio */    
+    margin: 0; /* Removes any default margin */
+    padding: 0; /* Removes any default padding */
+    cursor: pointer;
+}
+
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 2vh; /* Increase the font size */
+    height: 100% ;/* Full height of the parent container */
+    width: 100%; /* Full width of the parent container */
+    flex-wrap: wrap;
+    margin-right: 10vh;
+    z-index: 999;
+}
+
+.menu-item {
+    font-family: Roboto;
+    color: #FA4343; /* The red color as per the button example */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3vh; /* Increase the font size */
+}
+
+.menu-item:hover{
+    text-decoration: underline;
+    
+}
+
+.separator {
+    color: var(--grey50);
+    font-size: 5vh;
+}
+
+.buttonArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #FA4343;
+    padding: 10px;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.map-button {
+    background-color: #FA4343;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.map-button:hover {
+    background-color: #e03b3b;
+}
+
+.map-button:active{
+    background-color: white;
+    color:var(--kataRED)
+}
+
+.exitB{
+    width: 500px;
+    margin: 50px;
+}
+
+
+.offer-box {
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: #00AEEF;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    cursor: move; /* Change cursor to indicate draggable area */
+}
+
+.offer-title {
+    font-size: 2em;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.close-btn {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+
+.offer-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.offer-details p {
+    margin: 5px 0;
+}
+
+
+.menu-item-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FA4343;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.dropdown-content a {
+    transition: ease-in 5s ease;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 1em;
+    border-radius: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ba2929;
+    
+}
+
+.menu-item-container:hover .dropdown-content {
+    display: block;
+}
+
+.form-container {
+    font-family: roboto;
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+    background-color: #FA4343;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.form-content {
+    padding: 20px;
+}
+
+.form-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-content select,
+.form-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-content select {
+    appearance: none;
+    background: #f9f9f9 url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCA2Ij4gPHBhdGggZD0iTTUgMEw5IDZIMkw1IDB6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 10px;
+}
+
+.form-content input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+.btn.add-fields {
+    background-color: #FF6B6B;
+}       
+
+.btn.submit {
+    background-color: #FA4343;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.reqs{
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+
+
+
+.dashboard-container {
+    font-family: roboto;
+    display: none;
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header {
+    background-color: #FA4343;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5em;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
+.date-picker {
+    padding: 20px 0;
+}
+
+.date-picker label {
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+.date-picker input {
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #eee;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+}
+.charts {
+    padding: 20px 0;
+    display: none; /* Initially hidden */
+    text-align: center;
+}
+
+.charts canvas {
+    max-width: 70%;
+    width: 90%;
+    height: 400px; /* Set a more reasonable height */
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.btnC {
+    width: 20%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: var(--kataRED);
+}
+
+/* Container for data table and filter */
+.data-container {
+    font-family: roboto;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Table container styles */
+.table-container {
+    flex: 3;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
+    margin-right: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #FA4343;
+    color: white;
+}
+
+th.sort-asc::after {
+    content: ' ▲'; /* Up arrow */
+}
+
+th.sort-desc::after {
+    content: ' ▼'; /* Down arrow */
+}
+
+thead tr th:hover {
+    cursor: pointer;
+}
+
+thead tr th.no-sort:hover {
+    cursor: default; /* don't show pointer cursor for non-sortable columns */    
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: var(--kataRED);
+    color: white;
+}
+
+.viewStockW{
+    display: none;
+}
+/* Filter container styles */
+.filter-container {
+    font-family: var(--font-roboto);
+    flex: 1;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+}
+
+.filter-header {
+    background-color: #FA4343;
+    color: white;
+    padding:15px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.filter-content {
+    padding: 20px;
+}
+
+.filter-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.filter-content select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    appearance: none;
+    background: #f9f9f9 url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCA2Ij4gPHBhdGggZD0iTTUgMEw5IDZIMkw1IDB6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 10px;
+}
+
+
+/*mobile version*/
+.hamburger-menu {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #FA4343;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .menu-bar {
+        display: none; /* Hide the menu bar */
+        flex-direction: column;
+        background-color: #f4f4f4;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 250px;
+        height: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        justify-content: flex-start;
+        padding-top: 15%;
+        border-radius: 15px;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu button */
+    }
+
+    .menu-bar a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .separator {
+        display: none; /* Hide separators on mobile */
+    }
+    .menu-item-container {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: relative; /* Change position for mobile */
+        min-width: 100%;
+        box-shadow: none;
+    }
+
+    .menu-item-container.active .dropdown-content {
+        display: block;
+    }
+
+
+    .container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+        "modeT modeT" 
+        "logoT menuT" 
+        "left-box left-box"
+        "right-box right-box";
+        height: auto;
+    
+    }
+
+    .modeT {
+        grid-area: modeT;
+    }
+
+    .logoT {
+        grid-area: logoT;
+    }
+
+    .menuT {
+        grid-area: menuT;
+        justify-content: flex-start;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    .modeF{
+        font-size: small;
+    }
+    .right-box {
+        grid-area: right-box;
+    }
+
+    .left-box {
+        grid-area: left-box;
+    }
+    .offer-box {
+        width: 90%; /* Reduce width for mobile */
+        max-width: none;
+        left: 5%; /* Adjust positioning */
+        top: 10%;
+        transform: none; /* Reset transform */
+    }
+
+    .mapWtitle{
+        font-size: 1em;
+    }
+
+    #map {
+        width: 100%;
+        height: 20rem; /* Ensure sufficient height */
+        border-bottom: 2px solid #FA4343;
+    }
+
+    .map-button{
+        font-size: 0.9em;
+    }
+
+    .data-container {
+        flex-direction: column; /* Stack the containers vertically */
+    }
+
+    .table-container {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    table {
+        font-size: 0.8em; /* Decrease font size */
+    }
+
+    .charts canvas {
+        width: 600px; /* Adjust to full width */
+        height: auto; /* Adjust height to maintain aspect ratio */
+        max-width: 100%;
+        max-height: 100%; /* Ensure it doesn't overflow */ /* Adjust height to maintain aspect ratio */
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        
+    }
+    
+    .dashboard-container {
+        font-family: roboto;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 100%;
+        
+    }
+    .date-picker{
+        scale: 0.8;
+    }
+    
+    #newRequest {
+        display: block;
+    }
+}
+
+
+.historyReq{
+    display: none;
+    flex-grow: 1;
+}
+
+.offergive{
+    display: none;
+}
+
+.offergiveHist{
+    display: none;
+}
+
+
+/* Custom checkbox styles */
+input[type="checkbox"].task-checkbox {
+    appearance: none;
+    background-color: white; /* Unchecked background */
+    margin: 0;
+    font: inherit;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FA4343; /* Red border */
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+    transition: background-color 120ms ease-in-out; /* Add smooth transition */
+}
+
+input[type="checkbox"].task-checkbox::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transition: transform 120ms ease-in-out;
+}
+
+input[type="checkbox"].task-checkbox:checked {
+    background-color: #00AEEF; /* Red background when checked */
+}
+
+input[type="checkbox"].task-checkbox:checked::before {
+    transform: scale(1);
+    background-color:#00AEEF; /* White checkmark when checked */
+    box-shadow: inset 1em 1em #00AEEF;
+}
+
+/* Styles for disabled checkboxes */
+input[type="checkbox"].task-checkbox:disabled {
+    background-color: #e0e0e0;
+    /* Grey background when disabled */
+    border-color: #b0b0b0;
+    /* Grey border when disabled */
+}
+
+input[type="checkbox"].task-checkbox:disabled::before {
+    background-color: #b0b0b0;
+    /* Grey checkmark when disabled */
+    box-shadow: inset 1em 1em #b0b0b0;
+}

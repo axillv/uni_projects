@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kata-strofi</title>
+    <link rel="stylesheet" href="start.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+    <div class="container">
+        <div class="logoT">
+            <img class="RlogoBIG" alt="" src="kata-strofi_RN.svg">
+        </div>
+        <div class="mapT">
+            <img class="GRmapstart" alt="" src="thesalia_vector-01.svg">
+        </div>
+        <div class="menuT">
+            <nav class="menu-bar">
+                <a href="#" class="menu-item">Αρχική</a>
+                <span class="separator">|</span>
+                <a href="#" class="menu-item">Δράση</a>
+                <span class="separator">|</span>
+                <a href="#" class="menu-item">Άρθρα</a>
+                <span class="separator">|</span>
+                <a href="#" class="menu-item">Επικοινωνία</a>
+            </nav>
+        </div>
+        <div class="menuTmobile">
+            <div id="menu-toggle" class="menu-toggle">&#9776;</div>
+            <div id="overlay" class="overlay">
+                <div class="overlay-content">
+                    <nav class="mobile-menu">
+                        <a href="#" class="menu-item">Αρχική</a>
+                        <a href="#" class="menu-item">Δράση</a>
+                        <a href="#" class="menu-item">Άρθρα</a>
+                        <a href="#" class="menu-item">Επικοινωνία</a>
+                    </nav>
+                    <button id="overlayLoginButton" class="customB">Είσοδος</button>
+                </div>
+            </div>
+        </div>
+        <div class="logBT"> 
+            <button id="loginOverB" class="customB">Είσοδος</button>
+        </div>
+        <div class="newsT1">
+            <div class="newNotif" id="firstpriority">
+                <h2 class="title">Εκκένωση νομού Ιτέας</h2>
+                <p class="recipient-info">Πολιτικηηη Προστασία, 1(3)12</p>
+                <p class="description">
+                    Η φωτιά έχει εξαπλωθει και στον αέρα, το σενάριο του
+                    Οπενχαιμερ έγινε δυνατό. Βρείτε πηγάδ Βορνό και
+                    πέτρο και πηδηχτ μέσα μην περιμντε τίπτα..
+                </p>
+                <p class="time-date">20:44-11/11</p>
+            </div>
+        </div>
+        <div class="newsT2">
+            <div class="newNotif" id="secondpriority">
+                <h2 class="title">Εγκλωβισμός οχημάτων</h2>
+                <p class="recipient-info">Μπλε στρουμφάκια, 200</p>
+                <p class="description">
+                    Στην π. οδό Λαρίσης-Ιτέας υπάρχει μποτιλιάρισμα, 
+                    σύντεκνος είχε 5 λίτρα πρωτοστάλαγμα και πήρε φόκο το αγροτικό.
+                    Παρακάμψτε μέσω ποταμού Εννιπέα
+                </p>
+                <p class="time-date">16:44-11/11</p>
+            </div>
+        </div>
+        <div class="newsT3">
+            <div class="newNotif" id="thirdpriority">
+                <h2 class="title">Καύσωνας</h2>
+                <p class="recipient-info">Αυτιάς</p>
+                <p class="description">
+                    Μπείτε σε πισίνες και μη κνιέστε ντιπ, ξεφυσάει δράκος έξω.
+                    δαδασδασδαασσαδσσσσσσσσσσσσδδδδδδδ
+                </p>
+                <p class="time-date">16:44-11/11</p>
+            </div>
+        </div>
+        <div class="container2" id="contF"> 
+            <div class="popupback">
+                <div class="exitF">
+                    <div class="exit-button" id="exitButton5"></div>
+                </div>
+                <div class="textF">
+                    <div class="popuptitle"> 
+                        Συνδεθείτε
+                    </div> 
+                </div>
+                <div class="userF">
+                    <div class="input-container">
+                        <input type="text" placeholder="Όνομα χρήστη" name="usernameF" id="usernameF">
+                    </div>
+                </div>
+                <div class="passF">
+                    <div class="input-container">
+                        <input type="password" placeholder="Κωδικός πρόσβασης" name="passwordF" id="passwordF">
+                    </div>
+                </div>
+                <div class="forgotF">
+                    <a href="#" class="register-link" id="registerLink">Δεν έχετε λογαριασμό? Εγγραφείτε εδώ</a>
+                </div>
+                <div class="logF">
+                    <button class="login-button" id="loginButton"> Είσοδος </button>
+                </div>
+            </div>
+        </div>
+
+<!-- Registration Pop-up -->
+<div class="container2" id="registerPopup">
+    <div class="popupback">
+        <div class="exitF">
+            <div class="exit-button" id="exitRegisterButton"></div>
+        </div>
+        <div class="textF">
+            <div class="popuptitle"> 
+                Εγγραφή
+            </div> 
+        </div>
+        <div class="userF" id="firstStage">
+            <div class="input-container">
+                <input type="text" placeholder="Όνομα χρήστη" name="registerUsername" id="registerUsername">
+            </div>
+            <div class="input-container">
+                <input type="password" placeholder="Κωδικός πρόσβασης" name="registerPassword" id="registerPassword">
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Όνομα" name="firstName" id="firstName">
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Επίθετο" name="lastName" id="lastName">
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Τηλέφωνο" name="phoneNumber" id="phoneNumber">
+            </div>
+            <div class="logF">
+                <button class="login-button" id="nextButton">Επόμενο</button>
+            </div>
+        </div>
+
+        <div class="userF" id="secondStage" style="display: none;">
+            <div id="map" style="width: 100%; height: 300px;"></div>
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <div class="logF">
+                <button class="login-button" id="registerButton"> Εγγραφή </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

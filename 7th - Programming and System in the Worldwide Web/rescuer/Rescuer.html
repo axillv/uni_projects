@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescuer</title>
+    <link rel="stylesheet" href="Rescuer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="modeT">
+            <div class="modeRectangle">
+                <div class="modeF" id="rescuer-name">
+                    Συνδεδεμένος ως Rescuer
+                </div>
+            </div>
+        </div>
+
+        <div class="logoT">
+            <img class="RlogoBIG" alt="" src="../kata-strofiF.svg" id="logoF">
+        </div>
+
+        <div class="menuT">
+            <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
+            <nav class="menu-bar">
+                <a href="#" class="menu-item" id="vehiclemanagement">Φορτίο Οχήματος</a>
+                <span class="separator">|</span>
+                <a href="#" class="menu-item" id="loggout">Αποσύνδεση</a>
+            </nav>
+        </div>
+
+
+        <div class="imapT">
+            <div class="mapContainer" id="mapContainerI">
+                <h1 class="mapWtitle">
+                    Διαδραστικός χάρτης
+                </h1>
+                <div class="mapView">
+                    <div id="map"></div>
+                    <div class="help-icon" id="helpBtn">
+                        <img class="exitB" alt="" src="../helpB.png">
+                    </div>
+                </div>
+
+                <div class="sidebar" id="sidebar">
+                </div>
+                <div class="buttonArea">
+                    <button class="map-button" id="toggleTakenRequests" data-filter="takenRequests">Αιτήματα
+                        αναληφθέντα</button>
+                    <button class="map-button" id="toggleTakenOffers" data-filter="takenOffers">Προσφορές αναληφθείσες</button>
+                    <button class="map-button" id="togglePendingRequests" data-filter="pendingRequests">Αιτήματα
+                        εκκρεμή</button>
+                    <button class="map-button" id="togglePendingOffers" data-filter="pendingOffers">Προσφορές
+                        εκκρεμείς</button>
+                    <button class="map-button" id="toggleLines" data-filter="lines">Ενδείξεις γραμμών</button>
+                    <button class="btn_task" id="task">Ανάληψη</button>
+                </div>
+            </div>
+
+
+            <div class="form-wrapper">
+                <!-- Data table for vehicle management -->
+                <div class="vehicle_management" id="vehiclem" style="display: none;">
+                    <div class="data-container">
+                        <div class="table-container">
+                            <table id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th colspan="6" class="table-title">Φορτίο Οχήματος</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Κατηγορία</th>
+                                        <th>Όνομα</th>
+                                        <th>Detail Name</th>
+                                        <th>Detail Value</th>
+                                        <th>Τρέχουσα Ποσότητα</th>
+                                        <th>Αλλαγή ποσότητας</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table rows will be dynamically inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Second Table -->
+                        <div class="table-container">
+                            <table id="secondTable">
+                                <thead>
+                                    <tr>
+                                        <th colspan="6" class="table-title">Περιεχόμενο Αποθήκης</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Κατηγορία</th>
+                                        <th>Όνομα</th>
+                                        <th>Detail Name</th>
+                                        <th>Detail Value</th>
+                                        <th>Τρέχουσα Ποσότητα</th>
+                                        <th>Αλλαγή ποσότητας</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button id="unloadBtn" class="btn submit">Εκφόρτωση</button>
+                    <button id="loadBtn" class="btn submit">Φόρτωση</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task Table Section (taskT) -->
+        <div class="taskT" id="taskt">
+            <div class="task-panel-right" id="taskT">
+                <div class="table-container2">
+                    <table id="taskTable">
+                        <thead>
+                            <tr>
+                                <th colspan="7" class="table-title">Τρέχοντα Tasks</th>
+                            </tr>
+                            <tr>
+                                <th>Επιλογή</th>
+                                <th>Ζ/Π</th>
+                                <th>Ονοματεπώνυμο</th>
+                                <th>Τηλέφωνο</th>
+                                <th>Ημ/νία Καταχώρησης</th>
+                                <th>Είδος</th>
+                                <th>Ποσότητα</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic task data will go here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttonArea">
+                    <button class="task-button" id="completedButton">Ολοκληρώθηκε</button>
+                    <button class="cancel-button" id="cancelButton">Ακύρωση</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ola ta popup mexri edo mesas-->
+        <div class="boxesT" id="boxesT">
+            <div class="task-offer-box" id="draggableBox" data-task-id="0" data-task-type="null">
+                <div class="task-header">
+                    <span class="task-title">Προσφορά</span>
+                    <span class="close-btn" id="closeBox">✖</span>
+                </div>
+                <div class="task-details">
+                    <p><strong>Ονοματεπώνυμο:</strong> Αλέξης Στροφερός</p>
+                    <p><strong>Τηλέφωνο:</strong> 69435050505</p>
+                    <p><strong>Ημ/νία καταχώρησης:</strong> 5/5/505</p>
+                    <p><strong>Είδος:</strong> Macallan</p>
+                    <p><strong>Ποσότητα:</strong> 2 κούτες</p>
+                    <p><strong>Ημ/νία ανάληψης οχήματος:</strong> 9/9/998</p>
+                    <p><strong>Διακριτικό οχήματος:</strong> ZYZ0505</p>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="Rescuer.js"></script>
+</body>
+
+</html>

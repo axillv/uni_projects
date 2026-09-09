@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+:root {
+    --kataRED: #FA4343;
+    --grey50: #5F5F5F;
+}
+.container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 2fr 1fr 1fr 0.8fr;
+    grid-template-rows: 0.8fr 1fr 1fr 1fr;
+    grid-template-areas: "logoT menuT menuT logBT" "mapT mapT newsT1 newsT1" "mapT mapT newsT2 newsT2" "mapT mapT newsT3 newsT3";
+    grid-gap: 0.1rem;
+}
+
+
+.logoT{
+    /*background-color: aqua;*/
+    grid-area: logoT;
+    display: flex;
+    justify-content: flex-start; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.mapT{
+    /*background-color: red;*/
+    grid-area: mapT;
+}
+
+.menuT{
+    /*background-color: green;*/
+    grid-area: menuT;
+       
+}
+
+
+.logBT{
+    /*background-color: yellow;*/
+    grid-area: logBT;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    text-align: center; 
+}
+
+.newsT1{
+    /*background-color: brown;*/
+    grid-area: newsT1;
+}
+
+.newsT2{
+    /*background-color: burlywood;*/
+    grid-area: newsT2;
+}
+
+.newsT3{
+    /*background-color: aliceblue;*/
+    grid-area: newsT3;
+}
+
+.RlogoBIG {
+    margin-left: 10vh;
+    height: auto;
+    width: 30vh; /* Maintain aspect ratio */ 
+    cursor: pointer;   
+}
+
+/* Responsive size adjustments for .GRmapstart */
+.GRmapstart {
+    height: 70vh; /* Adjust height relative to viewport height */
+    max-height: 800px; /* Cap the height */
+    width: 100%; /* Full width of the grid item */
+}
+.menuTmobile{
+    display: none;
+}
+
+.customB {
+    display: flex;
+    width: 180px;
+    height: 90px;
+    padding: 21px 32px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 31px;
+    background: var(--kataRED, #FA4343);
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 37%;
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 3vh; /* Increase the font size */
+    height: 100% ;/* Full height of the parent container */
+    width: 100%; /* Full width of the parent container */
+    flex-wrap: wrap;
+    margin-right: 2vh;
+}
+
+.menu-item {
+    color: #FA4343; /* The red color as per the button example */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3vh; /* Increase the font size */
+}
+
+.menu-item:hover{
+    text-decoration: underline;
+    
+}
+
+.separator {
+    color: var(--grey50);
+    font-size: 40px;
+}
+
+.customB:hover{
+    background-color: black;
+}
+
+
+.newsT1{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1vh;
+    box-sizing: border-box;
+}
+
+
+.newsT2{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1vh;
+    box-sizing: border-box;
+    
+}
+
+
+.newsT3{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1vh;
+    box-sizing: border-box;
+    
+}
+
+.newNotif {
+    background-color: #FA4343;
+    color: white;
+    border-radius: 31px 0 0 31px;
+    padding: 30px 50px 30px 30px;
+    max-width: 90%;
+    margin-right: 0px;
+    align-items: end;
+    
+}
+
+#secondpriority{
+    background-color: rgb(236, 186, 60);
+}
+
+#thirdpriority{
+    background-color: rgb(205, 203, 184);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.recipient-info {
+    font-size: 16px;
+    font-style: italic;
+    margin: 0 0 10px 0;
+}
+
+
+.description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+}
+
+.time-date {
+    font-size: 12px;
+    text-align: right;
+    margin: 0;
+}
+
+
+.container2 {
+    display: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr 0.5fr 1fr;
+    grid-template-areas: "textF exitF" "textF textF" "userF userF" "passF passF" "forgotF forgotF" "logF logF";
+    grid-gap: 0.1rem;
+    z-index: 9999;
+    backdrop-filter: blur(5px); /* Modern browsers */
+    -webkit-backdrop-filter: blur(5px); /* Safari (iOS) */
+    position: fixed;
+    justify-items: center;
+    align-items: center;
+    transform: translateZ(0);
+}
+
+.container2.active {
+    display: grid;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .popupback {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .popuptitle {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .input-container {
+        margin-bottom: 15px;
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .register-link {
+        font-size: 0.9rem;
+    }
+
+    .login-button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    .exit-button {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+
+/* MOBILE SCREEN */
+@media only screen and (max-width:550px){
+    .RlogoBIG{
+        margin-left: 0;
+        height: 100vh; /* Adjust height relative to viewport height */
+        max-height: 25vh; /* Ensure it doesn't get too large */
+    }
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .menu-item {
+        color: #FA4343;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    
+    .container
+    {
+        grid-template-columns: 1.5fr 0.5fr;
+        grid-template-rows: 1fr 2.5fr 1fr 1fr;
+        grid-template-areas: "logoT menuTmobile" "mapT mapT" "newsT1 newsT1" "newsT2 newsT2";
+    }
+    .menuT{
+        display: none;
+    }
+    .menuTmobile{
+
+        color: var(--kataRED);
+        grid-area: menuTmobile;
+    }
+    .newsT3{
+        display: none;
+    }
+    .logBT{
+        display: none;
+    }
+    .newsT1, .newsT2 {
+        min-height: 250px;
+        padding: 10px; 
+    }
+
+    .GRmapstart{
+        max-height: 400px;
+    }
+
+    .newNotif{
+        margin-right: 0px;
+        padding: 15px 20px 15px 15px; /* Adjust padding for smaller screens */
+        max-width: 95%; /* Adjust max-width for smaller screens */
+        max-height: 95%;
+    }
+}
+
+
+/* Menu Toggle Button */
+.menu-toggle {
+    font-size: 50px;
+    cursor: pointer;
+    color: var(--kataRED);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+
+
+.overlay {
+    position: fixed;
+    bottom: 00;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Expand from bottom to middle */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it sits above other content */
+}
+.overlay-content {
+    background-color: white;
+    padding: 60px;
+    border-radius: 15px 15px 0 0; /* Rounded top corners */
+    text-align: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out the content and button */
+}
+
+#overlayLoginButton{
+    height: 7vh;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Mobile Menu */
+
+/* Mobile Screen Adjustments */
+@media only screen and (max-width: 550px) {
+    .menuT {
+        display: none;
+    }
+
+    .menuTmobile {
+        display: block;
+        grid-area: menuTmobile;
+        padding: 10px;
+    }
+}
+
+
+
+
+/* login overlay gia savvato */
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popupback {
+    position: fixed;
+    width: 100%;
+    max-width: 705px;
+    padding: 20px;
+    border-radius: 41px;
+    background-color: var(--kataRED);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: none;
+
+}
+
+.popuptitle {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 70px;
+    padding-left: 20px; 
+    color: white;
+    text-align: left; 
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: var(--color-dimgray);
+}
+
+.register-link {
+    display: block;
+    margin: 10px;
+    font-size: 1rem;
+    color: white;
+    margin-right: 70%;
+}
+
+.login-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 30px;
+    margin-left: 65%;
+    border-radius: 15px;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+    border: none; /* Remove any border */
+    outline: none;
+}
+
+.login-button:hover{
+    background-color: white;
+    color: var(--kataRED);
+}
+
+.exit-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: url('Group5.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.atext {
+    width: 160px;
+    position: relative;
+    font-size: 14.74px;
+    font-family: var(--font-roboto);
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    margin-right: 390px;
+    margin-bottom: 10px;
+}
+
+.logF{
+    
+    grid-area: logF;
+}
+.forgotF{
+    
+    grid-area: forgotF;
+}
+.userF{
+    
+    grid-area: userF;
+}
+.passF{
+    
+    grid-area: passF;
+}
+.textF{
+    
+    grid-area: textF;
+}
+
+.exitF{
+    
+    grid-area: exitF;
+}
+/*mobile login flexbox*/
+.container2{
+    display: none;
+}
+
+.container2{
+    display: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr 0.5fr 1fr;
+    grid-template-areas: "textF exitF" "textF textF" "userF userF" "passF passF" "forgotF forgotF" "logF logF";
+    grid-gap: 0.1rem;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .popupback {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .popuptitle {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        margin-right:49%;
+    }
+
+    .input-container {
+        margin-bottom: 15px;
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .register-link {
+        font-size: 0.9rem;
+        margin-right: 49%;
+    }
+
+    .login-button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin-left: 60%;
+    }
+
+    .exit-button {
+        width: 25px;
+        height: 25px;
+    }
+}

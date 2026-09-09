@@ -1,0 +1,36 @@
+Offers:
+    -css tickboxes
+
+Rescuer Map:
+    //-Basics map
+
+    -Include active tasks, vehicle and base in view
+    -tasks selector list? with responsive map update?
+    -Task handling
+    -Warehouse management:
+        -TO BE ANALYZED
+
+Details:
+    -Add cancels to requests/offers etc. (if not already taken)
+    -Reorganize folders: public api, class api etc.
+    -Status in offer and requests
+    -Fix CSS
+    -Table sorting everywhere
+    -Show details along item name
+    -Add last page used for localstorage citizen
+    -Add sessions in for back/forwards
+    -SameSite cookies tag
+    -Announcement details?
+    -Base location popup in view
+    -Add button for map view instead of logo only
+    -Clean popups when changing view
+    -Api give roleid return username?
+    -Uniformly use fetch
+    -Pending etc offer markers?
+    -draw line to offer when selected?
+    -optimize sql queries
+
+Big fix:
+    -Quantity per person
+    -More than 1 item per request (popup?)
+    -Beautify announcements (popup/dropdown?)
