@@ -1,0 +1,14 @@
+[project]
+name = "digimgproccessing2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "keras>=3.11.2",
+    "matplotlib>=3.10.5",
+    "numpy>=2.3.2",
+    "scikit-image>=0.25.2",
+    "scikit-learn>=1.7.1",
+    "tensorflow>=2.20.0",
+]
