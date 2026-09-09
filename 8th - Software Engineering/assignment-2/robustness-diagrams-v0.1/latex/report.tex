@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{styles/report}
+\usepackage{styles/codespace}
+
+%%%%% Variables %%%%%%
+%\setprojectname{}
+%\setreportname{}
+%\setreportcode{fill this in}
+%\setaxilleasrole{fill this in}
+\setbillrole{Δημιουργία Robustness Diagrams, Ελεγκτής ποιότητας}
+%\setplatrole{fill this in}
+%\sethalvasrole{fill this in}
+
+%\addtolength{\cftsecnumwidth}{52pt}
+\renewcommand\thesection{\arabic{section}:}
+\renewcommand\thesubsection{\arabic{section}.\alph{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\alph{subsection}.\roman{subsubsection}}
+
+\reportlayout
+\begin{document}
+\coverpages
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+
+
+\bibliographystyle{plain}
+\renewcommand*\refname{Βιβλιογραφία}
+\bibliography{refs}
+Για τη δημιουργία των διαγραμμάτων χρησιμοποιήθηκαν τα μοντέλα της ιστοσελίδας \newline 
+https://online.visual-paradigm.com/login.jsp?t=diagrams
+\end{document}

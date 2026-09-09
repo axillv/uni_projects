@@ -1,0 +1,147 @@
+\ProvidesPackage{report}
+
+%% Language Support
+\RequirePackage[greek, english]{babel}
+\RequirePackage{alphabeta}
+
+\RequirePackage{fancyhdr} % Fancy Headers & Footers
+\RequirePackage{hyperref} % Hyperlinks
+\RequirePackage{geometry} % Support for page modification
+\RequirePackage{lastpage} % For last page printing
+
+\RequirePackage{graphicx} % For graphics, path etc.
+\graphicspath{ {./graphics/} } % Set graphics folder
+\RequirePackage{wrapfig} % for wrapfigure
+
+\RequirePackage{booktabs} % For midrules and more..
+\RequirePackage{multirow, multicol, tabularx} % For better tables
+
+
+%% Variables
+\newcommand{\@projectname}{FitQuest}
+\newcommand{\setprojectname}[1]{\renewcommand{\@projectname}{#1}}
+
+\newcommand{\@reportname}{Robustness Diagrams}
+\newcommand{\setreportname}[1]{\renewcommand{\@reportname}{#1}}
+
+\newcommand{\@reportcode}{Robustness-Diagrams-v0.1}
+\newcommand{\setreportcode}[1]{\renewcommand{\@reportname}{#1}}
+
+\newcommand{\@achilleasrole}{Δημιουργία Robustness Diagrams}
+\newcommand{\setachilleasrole}[1]{\renewcommand{\@achilleasrole}{#1}}
+
+\newcommand{\@billrole}{Δημιουργία Robustness Diagrams}
+\newcommand{\setbillrole}[1]{\renewcommand{\@billrole}{#1}}
+
+\newcommand{\@platrole}{Σύνταξη τεχνικού κειμένου,Δημιουργία Robustness Diagrams}
+\newcommand{\setplatrole}[1]{\renewcommand{\@platrole}{#1}}
+
+\newcommand{\@halvasrole}{Δημιουργία Robustness Diagrams}
+\newcommand{\sethalvasrole}[1]{\renewcommand{\@halvasrole}{#1}}
+
+%% Report Layout
+\def\reportlayout{
+  \geometry{
+    paper=a4paper,
+    vmargin=1cm,
+    hmargin=2cm,
+    includeheadfoot=true,
+    headheight=24.5pt
+  }
+  
+  %\onehalfspacing  TODO: %UNUSED?
+
+  \hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=black,
+    citecolor=red
+  }
+
+  % Header & Footer Setup
+  \pagestyle{fancy} % From fancyhdr
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.3pt}
+
+  \setlength{\headsep}{40pt}
+  \fancyhead{}
+  \fancyhead[L]{
+    \begin{tabular}{rl}
+      \begin{picture}(25,15)(0,0)
+        \put(0,-8){\includegraphics[width=8mm,height=8mm]{logo.png}}
+      \end{picture}
+      \begin{tabular}{l}
+        \textbf{\bf \ttfamily Πολυτεχνική Σχολή, Πανεπιστήμιο Πατρών} \\
+        \textbf{\bf \ttfamily Τμήμα Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής}
+      \end{tabular}
+    \end{tabular}
+  }
+  \fancyhead[R]{
+    \begin{tabular}{l}
+      \tiny \bf \\
+      \tiny \bf
+    \end{tabular}
+  }
+
+  \fancyfoot{}
+  \fancyfoot[L]{\scriptsize \ttfamily \@projectname}
+  \fancyfoot[R]{\scriptsize \ttfamily Σελίδα {\thepage}/\pageref{LastPage}}
+}
+
+%% Cover Page
+\def\coverpages{
+  \thispagestyle{empty}
+  \addtocounter{page}{-1} % Don't count cover pages
+  
+  \begin{center}
+    ΠΟΛΥΤΕΧΝΙΚΗ ΣΧΟΛΗ, ΠΑΝΕΠΙΣΤΗΜΙΟ ΠΑΤΡΩΝ
+    
+    ΤΜΗΜΑ ΜΗΧΑΝΙΚΩΝ ΗΛΕΚΤΡΟΝΙΚΩΝ ΥΠΟΛΟΓΙΣΤΩΝ ΚΑΙ ΠΛΗΡΟΦΟΡΙΚΗΣ
+    \\[5\baselineskip]
+    \includegraphics[width=0.2\textwidth]{logo.png}
+    \\[3\baselineskip]
+    \begin{tabular}{c}
+      \textbf{\Huge \parbox[c]{16cm}{\centering \@projectname}}      \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      {}                                                             \\
+      \midrule                                                       \\
+      \textbf{\huge \parbox[c]{16cm}{\centering \@reportname}}       \\
+      {}                                                             \\
+      \textbf{\Large \@reportcode}                                   \\
+      {}                                                             \\
+      \bottomrule                                                  
+    
+    \end{tabular}
+  \end{center}
+  \clearpage
+  
+%%% Page 2, members and changes!
+  \section*{Μέλη ομάδας}
+  \begin{table}[h]
+  \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Όνομα} & \textbf{Α.Μ.} & \textbf{Ρόλος στο παρών κείμενο} \\ 
+      \hline
+      Χάλλας Χαράλαμπος - Μάριος & 1084589 & \@halvasrole\\
+      \hline
+      Πλάτωνας Θεόδωρος & 1090073 & \@platrole\\ 
+      \hline
+      Μπαρδάκης Βασίλειος & 1088098 & \@billrole\\
+      \hline
+      Βιλλιώτης Αχιλλέας & 1084567 & \@achilleasrole \\
+      \hline
+    \end{tabular}
+    
+  \end{table}
+%%% Updates from previous version
+  \input{updates}
+
+}

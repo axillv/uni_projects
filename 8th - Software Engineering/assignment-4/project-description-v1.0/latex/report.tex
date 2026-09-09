@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{styles/report}
+\usepackage{styles/codespace}
+
+%%%%% Variables %%%%%%
+%\setprojectname{}
+%\setreportname{}
+%\setreportcode{fill this in}
+%\setaxilleasrole{fill this in}
+%\setbillrole{fill this in}
+\setplatrole{Σύνταξη τεχνικού κειμένου (v0.1)}
+\sethalvasrole{Σύνταξη τεχνικού κειμένου (v0.2, v1.0)}
+
+%\addtolength{\cftsecnumwidth}{52pt}
+\renewcommand\thesection{\arabic{section}:}
+\renewcommand\thesubsection{\arabic{section}.\alph{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\alph{subsection}.\roman{subsubsection}}
+
+\reportlayout
+\begin{document}
+\coverpages
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+
+
+\bibliographystyle{plain}
+\renewcommand*\refname{Βιβλιογραφία}
+\bibliography{refs}
+Όλα τα τα στοιχεία που χρησιμοποιήθηκαν στις μακέτες βρίσκονται στο https://pixabay.com/ \newline και στο https://www.canva.com/
+\end{document}

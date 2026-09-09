@@ -1,0 +1,21 @@
+%https://www.overleaf.com/learn/latex/Inserting_Images#Three_ways_to_insert_images_(create_LaTeX_figures)_in_Overleaf
+
+
+% Επίσης άμα θέλετε να βάλετε δύο ή παραπάνω εικόνες δίπλα δίπλα, χρησιμοποιήστε minipages
+\begin{figure}[!htb]
+  \centering
+  \begin{minipage}[b]{0.35\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{example-image-a4}
+    \caption{hello}
+    \label{}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.35\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{example-image}
+    \caption{hellotoo}
+  \end{minipage}
+\end{figure}
+
+\clearpage %this is important!!

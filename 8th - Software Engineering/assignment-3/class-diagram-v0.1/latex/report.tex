@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{styles/report}
+\usepackage{styles/codespace}
+
+\usepackage{enumitem}
+
+%%%%% Variabrefreshles %%%%%%
+\setprojectname{FitQuest}
+\setreportname{Class Diagram}
+\setreportcode{Class-diagram-v0.1}
+\setachilleasrole{Σύνταξη τεχνικού κειμένου και δημιουργία διαγραμμάτων}
+\setbillrole{Σύνταξη τεχνικού κειμένου και δημιουργία διαγραμμάτων}
+\setplatrole{Σύνταξη τεχνικού κειμένου και δημιουργία διαγραμμάτων}
+\sethalvasrole{Σύνταξη τεχνικού κειμένου και δημιουργία διαγραμμάτων}
+
+% Εάν είναι πολύ μεγάλο το prefix πχ Κεφάλαιο \arabic{section} και δεν χωραει στο table of contents.
+%\addtolength{\cftsecnumwidth}{52pt} 
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\arabic{section}.\alph{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\alph{subsection}.\roman{subsubsection}}
+
+\reportlayout
+\begin{document}
+\coverpages
+
+%% Table of contents (optional)
+\newpage
+%\tableofcontents
+%\newpage
+
+\include{chapters/terms}
+\include{chapters/uml}
+
+% \bibliographystyle{plain}
+% \bibliography{refs}
+\end{document}

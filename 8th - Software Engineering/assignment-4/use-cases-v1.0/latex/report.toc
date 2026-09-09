@@ -1,0 +1,35 @@
+\babel@toc {english}{}\relax 
+\contentsline {subsection}{\numberline {0.a}Συνολικό μοντέλο περιπτώσεων χρήσης}{1}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.b}Εξατομίκευση προγράμματος}{1}{subsection.0.2}%
+\contentsline {subsection}{\numberline {0.c}Αγορά αντικειμένου}{1}{subsection.0.3}%
+\contentsline {subsection}{\numberline {0.d}Μάχη ομάδας}{1}{subsection.0.4}%
+\contentsline {subsection}{\numberline {0.e}Σύστημα μάχης}{1}{subsection.0.5}%
+\contentsline {subsection}{\numberline {0.f}Χάρτης περιπέτειας}{2}{subsection.0.6}%
+\contentsline {subsection}{\numberline {0.g}Σακίδιο αντικειμένων}{2}{subsection.0.7}%
+\contentsline {subsection}{\numberline {0.h}Δημιουργία ομάδας}{2}{subsection.0.8}%
+\contentsline {subsection}{\numberline {0.i}Λίστα φίλων}{2}{subsection.0.9}%
+\contentsline {section}{\numberline {1:}Πιθανοί χειριστές}{4}{section.1}%
+\contentsline {section}{\numberline {2:}Περιπτώσεις χρήσης που θα υλοποιηθούν}{4}{section.2}%
+\contentsline {section}{\numberline {3:}Συνολικό μοντέλο περιπτώσεων χρήσης}{5}{section.3}%
+\contentsline {section}{\numberline {4:}Κείμενα περιπτώσεων χρήσης}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.a}Εξατομίκευση προγράμματος}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.b}Αγορά αντικειμένου}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.c}Μάχη ομάδας}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.d}Σύστημα μάχης}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.e}Χάρτης περιπέτειας}{11}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.f}Σακίδιο αντικειμένων}{12}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.g}Δημιουργία ομάδας}{13}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.h}Στρατόπεδο ομάδας}{14}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.i}Λίστα φίλων}{15}{subsection.4.9}%
+\contentsline {section}{\numberline {5:}Λοιπές περιπτώσεις χρήσης}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.a}Προβολή στατιστικών}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.b}Πώληση αντικειμένου}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.c}Υποβολή ticket υποστήριξης}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.d}Ανίχνευση επαναλήψεων}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.e}Επίπληξη παίκτη}{16}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.f}Επεξεργασία σάκου παίκτη}{16}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.g}Ανάληψη ticket υποστήριξης}{16}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.h}Ανάκτηση ενεργών ticket υποστήριξης}{16}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.i}Ρύθμιση λειτουργίας διακοσμιτή}{16}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.j}Ανίχνευση επαναλήψεων}{16}{subsection.5.10}%
+\contentsline {section}{\numberline {6:}Βιβλιογραφία}{17}{section.6}%

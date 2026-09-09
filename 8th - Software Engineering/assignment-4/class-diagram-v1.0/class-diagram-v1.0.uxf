@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>640</y>
+      <w>168</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>Profile
+--
+-int id
+-int age
+-int timesTrained
+-char profile
+-Dictionary &lt;..String&gt; exercises
+-Inventory inventory
+-string team_id
+-int gold
+--
++get age
++get level
++get team_id
++get gold
++get timesTrained
++UpdateTeamId(string newid)
++get exercises
++set exercises
++bool AreExercisesPopulated()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>952</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Training_Program
+--
+-Exercise exercises
+--
++getPrograms()
++chooseProgram(string text)
++createProgramMaker()
++createProgram(Exercises)
++calculateStats(nodeID, player)
++acceptDangerWarning()
++declineDangerWarning()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1344</x>
+      <y>1184</y>
+      <w>208</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>CombatSystem
+--
+-currentLevel: int
+-afkMaxSeconds: int
+-inactivityMaxSeconds: int
+-inactivitySeconds: int
+-combatTimeSeconds: int
+-inactiveTimerType: int
+-userProfile: Profile
+
+--
++CombatSystem(Profile)
++PopulateExerciseDataGrid()
++AttackButton()
++calculateRewards()
++isEnemyDead()
++StartInactivityTimer()
++reduceEnemyHealth()
++calculateDamage()
++FormatSecondsToMMSS()
++combatTimer()
++inactivityTimer()
++FleeButton()
++AfkCheckButton()
++saveRewardsToAccount(Rewards)
++updateEnemyInfo()
+-isCamWorking(): bool
++dealDamageWrapper(damage)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>832</y>
+      <w>184</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>Shop
+--
+-ListViewItem selectedItem
+-ImageList imageList;
+-Profile userProfile;
+-int userGold;
+-MainMenu mainmenu;
+--
+-backButton_Click()
+-ItemShop_Load()
+-itemsList_SelectedIndexChanged()
+-purchaseButton_Click()
+-AddItemToInventory(ListViewItem 
+item)
+-UpdateUserGold(string query, 
+string userId, 
+int newGoldAmount)
+-ItemsList_DrawItem()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>1168</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+-char stats
+-int value
+-bool isEquipment
+--
++isEquipment() 
++itemUsageChoice()
++itemSell()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1352</x>
+      <y>512</y>
+      <w>168</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Map
+--
+-userProfile: Profile ;
+-currentLevel: Level ;
+-nodePositions: Dictionary&lt;Point, int&gt;;
+-userProgressionLevel: int;
+-toolTip: ToolTip;
+-mainMenu: MainMenu;
+-teamName: String ;
+--
+-NodeButton_Click()
+-FetchUserProgressionLevel()
+-CreateNodes()
+-InitializeNodePositions()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>472</y>
+      <w>216</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Clan
+--
+-Profile members
+-Team_id
+--
+-void LoadClanCamp()
+-void checkForm(teamName)
+-void createClan()
+-void jointheclan()
+-void insertIntoTeam(string Names)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>784</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Team_Battle
+--
+-double remaining_time
+--
++teamBattleEnabled()
++generateEnemies()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1240</x>
+      <y>824</y>
+      <w>120</w>
+      <h>376</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>592</y>
+      <w>192</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>220.0;240.0;220.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>1488</y>
+      <w>208</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
++currentHP: int;
++maxHP: int;
++EnemyName: string;
++level: int
+--
++Enemy(name, maxHP, currentHP)
++takeDamage(damage)
++isDead(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1424</x>
+      <y>672</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1352</x>
+      <y>696</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Level
+--
+-bool isLocked
+--
+isLocked()
+isUnlocked()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1424</x>
+      <y>752</y>
+      <w>24</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;540.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>976</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Inventory
+--
+-userProfile: Profile
+-id: string
+-Gold: int
+-accessedFromCombatSystem: bool
+-mainmenu: MainMenu
+-combatSystem: CombatSystem
+--
+-LoadInventoryData()
+-ExecuteNonQuery() 
+-UpdateUserGold()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>904</y>
+      <w>136</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;60.0;150.0;60.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>1112</y>
+      <w>160</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;180.0;40.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>752</y>
+      <w>480</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=-
+Συμμετέχει</panel_attributes>
+    <additional_attributes>570.0;540.0;570.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>560</y>
+      <w>448</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>540.0;10.0;390.0;10.0;390.0;210.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>968</x>
+      <y>0</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Message_Window
+--
+-char message
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>904</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>368</y>
+      <w>272</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Team_Form
+--
+-Πεδία
+--
++checkTeamForm(Στοιχεία Ομάδας, Επιλογές φίλων)
++createTeamForm()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>640</y>
+      <w>280</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>FriendsList
+--
++connectionStrinng: string
+-Profile players
+--
+-fetchFriendsList(bool cached)
+-sendFriendReq(friendName)
+-addFriend(Player)
+-deleteFriend(player)
+-generateLink(): string
++GetLetter(): string
+-inviteFriendToClan(): bool
+-displayFriendActionSuccess(action, friendName)
+-deleteFriend(friendName): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>712</y>
+      <w>360</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>430.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>408</y>
+      <w>528</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;290.0;10.0;10.0;640.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>832</x>
+      <y>456</y>
+      <w>24</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1016</x>
+      <y>576</y>
+      <w>352</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>420.0;10.0;350.0;10.0;350.0;530.0;10.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1288</x>
+      <y>264</y>
+      <w>272</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Database_Communication
+--
+
+--
++getPreviousSession(nodeID)
++getPrograms()
++createTeam(Στοιχεία ομάδας, επιλογές φίλων)
++getProgress(NodeID)
++updateProgress(NodeID)
++getItems()
++updateItems()
++updateGold(int)
++updateStats()
++getPersonalizedItems()
++returnActiveTeamBattle(Team)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>408</y>
+      <w>328</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>390.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>440</y>
+      <w>352</w>
+      <h>528</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>420.0;10.0;420.0;60.0;270.0;60.0;270.0;300.0;10.0;300.0;10.0;640.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>1208</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Repetition
+--
+-quality: int
+-fullDamage: int
+
+--
++Repetition(quality, fullDamage)
++calculateDamage(): int
++isDetected(): bool 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1208</x>
+      <y>1264</y>
+      <w>152</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>144</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Inactivity Window
+--
+
+--
++inactivityWindow()
++isUserActiveGestures()
++resume()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>136</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Warning
+--
+
+--
++declineDanger()
++acceptDanger()
++createDangerWarning()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>888</x>
+      <y>56</y>
+      <w>128</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;80.0;10.0;80.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>56</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>144</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Loss/Win Window
+--
+
+--
+showLoss()
+showWin()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1104</x>
+      <y>56</y>
+      <w>176</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;200.0;70.0;200.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1440</x>
+      <y>440</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>208</x>
+      <y>936</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Filter
+--
+-object[] settings
+--
++shopFilter(settings)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>880</y>
+      <w>88</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;50.0;10.0;50.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>800</y>
+      <w>256</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>136</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Purchase_Confirmation
+--
+
+--
++createPurchaseConfimrationUI()
++confirmPurchase()
++cancelPurchase()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>24</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>136</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Purchase_Sucess
+--
+
+--
++createPurchaseSuccessUI()
++successPurchaseAck()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>136</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Purchase_Failure
+--
+
+--
++createPurchaseFailureUI()
++failedPurchaseAck()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1216</x>
+      <y>392</y>
+      <w>88</w>
+      <h>408</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0;10.0;490.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1088</x>
+      <y>1048</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Opponent_Selection
+--
+Enemy enemies
+--
++showEnemies()
++battle()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>16</y>
+      <w>432</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>520.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>16</y>
+      <w>224</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1408</x>
+      <y>144</y>
+      <w>176</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Team_Battle_Results
+--
+Enemy enemies
+--
++showEnemies()
++battle()
++showBattleResults()
+-notifyTeamMembers
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>856</y>
+      <w>24</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1616</x>
+      <y>144</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>No Internet Message
+--
+
+--
++showNoInternetMessage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1808</x>
+      <y>144</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>No Team Message
+--
+
+--
++showNoTeamMessage()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2008</x>
+      <y>144</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Team Battle Vote Window
+--
+
+--
++askTeamBattleVote()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>24</y>
+      <w>384</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;10.0;460.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1488</x>
+      <y>16</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0;260.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1688</x>
+      <y>16</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0;260.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1888</x>
+      <y>16</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0;260.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>1072</y>
+      <w>456</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;380.0;550.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>1368</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Rewards
+--
+-currency: int 
+-itemsList: items
+--
++public Rewards(rewardPoints)
++public getCurrency(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>1288</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>1424</y>
+      <w>672</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;820.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1208</x>
+      <y>1384</y>
+      <w>152</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1528</x>
+      <y>440</y>
+      <w>24</w>
+      <h>760</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;930.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>1072</y>
+      <w>96</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;80.0;100.0;80.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>1168</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Exercise
+--
+-string Exercise_Name
+-string Muscle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>896</x>
+      <y>592</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>1048</y>
+      <w>192</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>ConsumableItemInstance
+--
+-stats: Hashtable;
+-name: string ;
+--
++ConsumableItemInstance(name)
++addStats(AttrName, AttrValue)
++getStash(): Hashtable
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>1096</y>
+      <w>256</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{styles/report}
+\usepackage{styles/codespace}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+%%%%% Variables %%%%%%
+\setprojectname{FitQuest}
+\setreportname{Use cases}
+\setreportcode{Use-cases v0.1}
+\setachilleasrole{Δημιουργία use cases}
+\setbillrole{Δημιουργία use cases, ελεγκτής ποιότητας}
+\setplatrole{Δημιουργία use cases}
+\sethalvasrole{Δημιουργία use cases, σύνταξη τεχνικού κειμένου, δημιουργία UML}
+
+% Εάν είναι πολύ μεγάλο το prefix πχ Κεφάλαιο \arabic{section} και δεν χωραει στο table of contents.
+%\addtolength{\cftsecnumwidth}{52pt} 
+\renewcommand\thesection{\arabic{section}:}
+\renewcommand\thesubsection{\arabic{section}.\alph{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\alph{subsection}.\roman{subsubsection}}
+
+\reportlayout
+\begin{document}
+\coverpages
+
+%% Table of contents (optional)
+\newpage
+\tableofcontents
+\newpage
+
+\include{chapters/use-cases}
+\include{chapters/bib}
+
+\bibliographystyle{plain}
+%\bibliography{refs}
+\end{document}

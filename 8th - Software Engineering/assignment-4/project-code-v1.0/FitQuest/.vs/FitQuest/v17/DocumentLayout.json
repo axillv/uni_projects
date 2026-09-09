@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|c:\\users\\achilleas\\documents\\github\\fitquest\\assignment-4\\project-code-v1.0\\fitquest\\fitquest\\itemshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\itemshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\itemshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\itemshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\friendslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\friendslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\clan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\clan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\fitquest\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80319549-84C2-4538-9BE1-A63BCE656418}|FitQuest\\FitQuest.csproj|solutionrelative:fitquest\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Item.cs",
+              "RelativeDocumentMoniker": "FitQuest\\Item.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Item.cs",
+              "RelativeToolTip": "FitQuest\\Item.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T04:20:34.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItemShop.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\ItemShop.cs",
+              "RelativeDocumentMoniker": "FitQuest\\ItemShop.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\ItemShop.cs [Design]",
+              "RelativeToolTip": "FitQuest\\ItemShop.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T03:07:46.82Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FriendsList.cs",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\FriendsList.cs",
+              "RelativeDocumentMoniker": "FitQuest\\FriendsList.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\FriendsList.cs",
+              "RelativeToolTip": "FitQuest\\FriendsList.cs",
+              "ViewState": "AQIAANEAAAAAAAAAAAAAANkAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:33:06.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Clan.cs",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Clan.cs",
+              "RelativeDocumentMoniker": "FitQuest\\Clan.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Clan.cs",
+              "RelativeToolTip": "FitQuest\\Clan.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAQwB8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:25:00.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\MainMenu.cs",
+              "RelativeDocumentMoniker": "FitQuest\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\MainMenu.cs",
+              "RelativeToolTip": "FitQuest\\MainMenu.cs",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAAAM4AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:24:22.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainMenu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\MainMenu.cs",
+              "RelativeDocumentMoniker": "FitQuest\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\MainMenu.cs [Design]",
+              "RelativeToolTip": "FitQuest\\MainMenu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:24:19.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Inventory.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Inventory.cs",
+              "RelativeDocumentMoniker": "FitQuest\\Inventory.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Inventory.cs [Design]",
+              "RelativeToolTip": "FitQuest\\Inventory.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:14:19.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemShop.cs",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\ItemShop.cs",
+              "RelativeDocumentMoniker": "FitQuest\\ItemShop.cs",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\ItemShop.cs",
+              "RelativeToolTip": "FitQuest\\ItemShop.cs",
+              "ViewState": "AQIAAF8BAAAAAAAAAAAgwGsBAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T02:14:37.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "FitQuest\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\Achilleas\\Documents\\GitHub\\FitQuest\\assignment-4\\project-code-v1.0\\FitQuest\\FitQuest\\Properties\\Resources.resx",
+              "RelativeToolTip": "FitQuest\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-02T03:45:57.328Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
