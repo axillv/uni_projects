@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{graph\PYGZus{}size}\PYG{p}{,} \PYG{n}{edge\PYGZus{}factor}\PYG{p}{,} \PYG{n}{algorithm}\PYG{p}{,} \PYG{n+nb}{round}\PYG{p}{,} \PYG{n}{time}
+\end{Verbatim}

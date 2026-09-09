@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{10}
+    \PYG{n}{r}\PYG{o}{=}\PYG{l+m+mi}{10}
+
+    \PYG{n+nb}{round}\PYG{o}{=}\PYG{l+m+mi}{0}
+    \PYG{k}{while} \PYG{n}{r}\PYG{o}{\PYGZgt{}}\PYG{l+m+mf}{1.001}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} προσέγγιση του 1 λόγω α.κ.υ.}
+        \PYG{n}{r}\PYG{o}{=}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{r}\PYG{o}{*}\PYG{p}{(}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{))}
+        \PYG{n+nb}{round}\PYG{o}{+=}\PYG{l+m+mi}{1}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{round}\PYG{p}{)}
+\end{Verbatim}
